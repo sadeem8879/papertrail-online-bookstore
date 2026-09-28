@@ -1,0 +1,12 @@
+const seedBooks = [
+  { title: 'The Alchemist', author: 'Paulo Coelho', category: 'Fiction', price: 399, quantity: 12, description: 'A shepherd travels from Spain to Egypt in search of treasure and discovers a story about listening to your heart along the way.', cover: 'https://covers.openlibrary.org/b/isbn/9780062315007-L.jpg' },
+  { title: 'Atomic Habits', author: 'James Clear', category: 'Self-help', price: 549, quantity: 8, description: 'A practical guide to building good habits, breaking bad ones, and making small changes that add up over time.', cover: 'https://covers.openlibrary.org/b/isbn/9780735211292-L.jpg' },
+  { title: 'The Hobbit', author: 'J. R. R. Tolkien', category: 'Fantasy', price: 450, quantity: 15, description: 'Bilbo Baggins leaves his comfortable home and joins a company of dwarves on an unexpected journey to reclaim their mountain home.', cover: 'https://covers.openlibrary.org/b/isbn/9780547928227-L.jpg' },
+  { title: 'Ikigai', author: 'Héctor García & Francesc Miralles', category: 'Wellbeing', price: 350, quantity: 20, description: 'A look at the habits and ideas that help people in Okinawa find purpose and stay active throughout their lives.', cover: 'https://covers.openlibrary.org/b/isbn/9780143130727-L.jpg' },
+  { title: 'The Psychology of Money', author: 'Morgan Housel', category: 'Business', price: 499, quantity: 6, description: 'Short stories about the ways people think about money, risk, saving, and what it means to have enough.', cover: 'https://covers.openlibrary.org/b/isbn/9780857197689-L.jpg' },
+  { title: 'Pride and Prejudice', author: 'Jane Austen', category: 'Classics', price: 299, quantity: 11, description: 'Elizabeth Bennet navigates family expectations, first impressions, and the complicated business of falling in love.', cover: 'https://covers.openlibrary.org/b/isbn/9780141439518-L.jpg' },
+  { title: 'Wings of Fire', author: 'A. P. J. Abdul Kalam', category: 'Biography', price: 299, quantity: 14, description: 'The former president of India reflects on his childhood, his education, and a career in aerospace and public service.', cover: 'https://covers.openlibrary.org/b/isbn/9788173711466-L.jpg' },
+  { title: 'The Blue Umbrella', author: 'Ruskin Bond', category: 'Fiction', price: 199, quantity: 9, description: 'In a Himalayan village, a young girl trades her lucky charm for a bright blue umbrella that catches everyone’s eye.', cover: 'https://covers.openlibrary.org/b/isbn/9780143333388-L.jpg' },
+];
+
+export default seedBooks;

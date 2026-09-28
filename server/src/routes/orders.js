@@ -2,10 +2,18 @@ import { Router } from 'express';
 import mongoose from 'mongoose';
 import Book from '../models/Book.js';
 import Order from '../models/Order.js';
+import requireAuth from '../middleware/requireAuth.js';
 
 const router = Router();
 
-router.post('/', async (req, res, next) => {
+router.get('/mine', requireAuth, async (req, res, next) => {
+  try {
+    const orders = await Order.find({ user: req.user.userId }).sort({ createdAt: -1 });
+    res.json(orders);
+  } catch (error) { next(error); }
+});
+
+router.post('/', requireAuth, async (req, res, next) => {
   const requested = req.body?.items;
   if (!Array.isArray(requested) || requested.length === 0) {
     return res.status(400).json({ message: 'Your cart is empty.' });
@@ -46,7 +54,7 @@ router.post('/', async (req, res, next) => {
       orderItems.push({ book: book._id, title: book.title, author: book.author, quantity, unitPrice: book.price });
     }
 
-    const order = await Order.create({ items: orderItems, total, status: 'demo_ordered', paymentStatus: 'not_processed' });
+    const order = await Order.create({ user: req.user.userId, items: orderItems, total, status: 'demo_ordered', paymentStatus: 'not_processed' });
     const updatedBooks = await Book.find({ _id: { $in: [...quantities.keys()] } });
     return res.status(201).json({
       message: 'Demo order recorded. No payment was processed.',

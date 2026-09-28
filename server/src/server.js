@@ -4,6 +4,7 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 import booksRouter from './routes/books.js';
 import ordersRouter from './routes/orders.js';
+import authRouter from './routes/auth.js';
 import Book from './models/Book.js';
 import seedBooks from './seedBooks.js';
 
@@ -12,6 +13,7 @@ app.use(cors());
 app.use(express.json());
 app.get('/api/health', (_req, res) => res.json({ status: 'ok', database: mongoose.connection.readyState === 1 ? 'connected' : 'disconnected' }));
 app.use('/api/books', booksRouter);
+app.use('/api/auth', authRouter);
 app.use('/api/orders', ordersRouter);
 app.use((error, _req, res, _next) => {
   console.error(error);
